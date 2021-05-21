@@ -9,8 +9,8 @@
  (type $none_=>_i32 (func (result i32)))
  (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
- (import "audio" "_initAudio" (func $node_modules/audio.as/assembly/audio/_initAudio (param i32) (result i32)))
- (import "audio" "_toggleAutoplay" (func $node_modules/audio.as/assembly/audio/_toggleAutoplay (param i32 i32)))
+ (import "audio" "_initAudio" (func $node_modules/audio-as/assembly/audio/_initAudio (param i32) (result i32)))
+ (import "audio" "_toggleAutoplay" (func $node_modules/audio-as/assembly/audio/_toggleAutoplay (param i32 i32)))
  (global $~lib/rt/itcms/white (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/iter (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/toSpace (mut i32) (i32.const 0))
@@ -310,7 +310,7 @@
    end
   end
  )
- (func $node_modules/audio.as/assembly/audio/Audio#set:src (param $0 i32) (param $1 i32)
+ (func $node_modules/audio-as/assembly/audio/Audio#set:src (param $0 i32) (param $1 i32)
   local.get $0
   local.get $1
   i32.store offset=4
@@ -319,7 +319,7 @@
   i32.const 0
   call $~lib/rt/itcms/__link
  )
- (func $node_modules/audio.as/assembly/audio/Audio#set:id (param $0 i32) (param $1 i32)
+ (func $node_modules/audio-as/assembly/audio/Audio#set:id (param $0 i32) (param $1 i32)
   local.get $0
   local.get $1
   i32.store
@@ -2450,7 +2450,7 @@
    call $~lib/rt/itcms/__visit
   end
  )
- (func $node_modules/audio.as/assembly/audio/Audio~visit (param $0 i32) (param $1 i32)
+ (func $node_modules/audio-as/assembly/audio/Audio~visit (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $0
   i32.load offset=4
@@ -2463,7 +2463,7 @@
  )
  (func $~lib/rt/__visit_members (param $0 i32) (param $1 i32)
   block $invalid
-   block $node_modules/audio.as/assembly/audio/Audio
+   block $node_modules/audio-as/assembly/audio/Audio
     block $~lib/arraybuffer/ArrayBufferView
      block $~lib/string/String
       block $~lib/arraybuffer/ArrayBuffer
@@ -2471,7 +2471,7 @@
        i32.const 8
        i32.sub
        i32.load
-       br_table $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $node_modules/audio.as/assembly/audio/Audio $invalid
+       br_table $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $node_modules/audio-as/assembly/audio/Audio $invalid
       end
       return
      end
@@ -2484,7 +2484,7 @@
    end
    local.get $0
    local.get $1
-   call $node_modules/audio.as/assembly/audio/Audio~visit
+   call $node_modules/audio-as/assembly/audio/Audio~visit
    return
   end
   unreachable
@@ -2521,7 +2521,7 @@
    unreachable
   end
  )
- (func $node_modules/audio.as/assembly/audio/Audio#constructor (param $0 i32) (param $1 i32) (result i32)
+ (func $node_modules/audio-as/assembly/audio/Audio#constructor (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 8
@@ -2543,13 +2543,13 @@
   end
   local.get $0
   i32.const -1
-  call $node_modules/audio.as/assembly/audio/Audio#set:id
+  call $node_modules/audio-as/assembly/audio/Audio#set:id
   local.get $0
   i32.const 0
-  call $node_modules/audio.as/assembly/audio/Audio#set:src
+  call $node_modules/audio-as/assembly/audio/Audio#set:src
   local.get $0
   local.get $1
-  call $node_modules/audio.as/assembly/audio/Audio#set:src
+  call $node_modules/audio-as/assembly/audio/Audio#set:src
   local.get $0
   local.get $1
   if (result i32)
@@ -2562,8 +2562,8 @@
   local.get $2
   i32.store offset=4
   local.get $2
-  call $node_modules/audio.as/assembly/audio/_initAudio
-  call $node_modules/audio.as/assembly/audio/Audio#set:id
+  call $node_modules/audio-as/assembly/audio/_initAudio
+  call $node_modules/audio-as/assembly/audio/Audio#set:id
   local.get $0
   local.set $2
   global.get $~lib/memory/__stack_pointer
@@ -2572,7 +2572,7 @@
   global.set $~lib/memory/__stack_pointer
   local.get $2
  )
- (func $node_modules/audio.as/assembly/audio/Audio#set:autoplay (param $0 i32) (param $1 i32)
+ (func $node_modules/audio-as/assembly/audio/Audio#set:autoplay (param $0 i32) (param $1 i32)
   (local $2 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 4
@@ -2597,7 +2597,7 @@
    local.get $2
    i32.store
    local.get $2
-   call $node_modules/audio.as/assembly/audio/_toggleAutoplay
+   call $node_modules/audio-as/assembly/audio/_toggleAutoplay
   end
   global.get $~lib/memory/__stack_pointer
   i32.const 4
@@ -2623,12 +2623,12 @@
   local.get $1
   i32.store
   local.get $1
-  call $node_modules/audio.as/assembly/audio/Audio#constructor
+  call $node_modules/audio-as/assembly/audio/Audio#constructor
   local.tee $0
   i32.store offset=4
   local.get $0
   i32.const 1
-  call $node_modules/audio.as/assembly/audio/Audio#set:autoplay
+  call $node_modules/audio-as/assembly/audio/Audio#set:autoplay
   global.get $~lib/memory/__stack_pointer
   i32.const 8
   i32.add
