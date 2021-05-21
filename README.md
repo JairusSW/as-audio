@@ -4,7 +4,7 @@
 ## Installation
 
 ```bash
-~ npm install as-audio
+~ npm install audio.as
 ```
 Install optional dependencies
 ```bash
@@ -18,7 +18,7 @@ Install optional dependencies
 ```js
 ...
 const loader = require('@assemblyscript/loader')
-+ const AudioImport = require('as-audio')
++ const AudioImport = require('audio.as')
 + const audio = new AudioImport({
 +    asBind: false
 +    // Can toggle this to true
@@ -36,7 +36,7 @@ const wasmModule = loader.instantiateSync(..., imports);
 ```js
 ...
 import * as loader from '...'
-+ import { AudioImport } from 'https://unpkg.com/as-audio@latest/imports.browser.js'
++ import { AudioImport } from 'https://unpkg.com/audio.as@latest/imports.browser.js'
 + const audio = new AudioImport({
 +    asBind: false
 + })
@@ -53,7 +53,7 @@ loader.instantiate(..., imports).then((wasmModule) => {
 
 **AssemblyScript**
 ```js
-import { Audio } from 'as-audio'
+import { Audio } from 'audio.as'
 
 const audio = new Audio('https://listen.moe/kpop/opus')
 // Kpop stream! 🎶
