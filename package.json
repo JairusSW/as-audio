@@ -1,0 +1,34 @@
+{
+  "name": "as-audio",
+  "version": "1.0.0",
+  "description": "AssemblyScript Audio API for NodeJS and Browser",
+  "repository": "https://github.com/JairusSW/as-audio",
+  "types": "assembly/audio.ts",
+  "ascMain": "assembly/audio.ts",
+  "main": "imports.js",
+  "browser": "imports.esm.js",
+  "dependencies": {
+    "prism-media": "^1.2.9",
+    "undici": "^3.3.6"
+  },
+  "author": "Jairus Tanaka",
+  "license": "MIT",
+  "scripts": {
+    "asbuild:untouched": "asc assembly/audio.ts --target debug",
+    "asbuild:optimized": "asc assembly/audio.ts --target release",
+    "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized",
+    "test": "node tests"
+  },
+  "devDependencies": {
+    "@assemblyscript/loader": "^0.18.32",
+    "assemblyscript": "^0.18.32"
+  },
+  "peerDependencies": {
+    "speaker": "^0.5.3"
+  },
+  "peerDependenciesMeta": {
+    "speaker": {
+      "optional": true
+    }
+  }
+}
