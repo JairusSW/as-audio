@@ -2,17 +2,15 @@
  (type $i32_i32_=>_none (func (param i32 i32)))
  (type $i32_=>_i32 (func (param i32) (result i32)))
  (type $i32_=>_none (func (param i32)))
- (type $i32_i32_=>_i32 (func (param i32 i32) (result i32)))
  (type $none_=>_none (func))
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
+ (type $i32_i32_=>_i32 (func (param i32 i32) (result i32)))
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $none_=>_i32 (func (result i32)))
  (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
- (import "audio" "_initAudio" (func $assembly/audio/_initAudio (param i32) (result i32)))
- (import "audio" "_playAudio" (func $assembly/audio/_playAudio (param i32 i32)))
- (import "audio" "_pauseAudio" (func $assembly/audio/_pauseAudio (param i32 i32)))
- (import "audio" "_toggleAutoplay" (func $assembly/audio/_toggleAutoplay (param i32 i32)))
+ (import "audio" "_initAudio" (func $node_modules/audio.as/assembly/audio/_initAudio (param i32) (result i32)))
+ (import "audio" "_toggleAutoplay" (func $node_modules/audio.as/assembly/audio/_toggleAutoplay (param i32 i32)))
  (global $~lib/rt/itcms/white (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/iter (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/toSpace (mut i32) (i32.const 0))
@@ -25,8 +23,6 @@
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
  (global $~lib/ASC_LOW_MEMORY_LIMIT i32 (i32.const 0))
  (global $~lib/ASC_SHRINK_LEVEL i32 (i32.const 0))
- (global $assembly/audio/Audio i32 (i32.const 3))
- (global $~argumentsLength (mut i32) (i32.const 0))
  (global $~lib/rt/__rtti_base i32 (i32.const 544))
  (global $~lib/memory/__data_end i32 (i32.const 580))
  (global $~lib/memory/__stack_pointer (mut i32) (i32.const 16964))
@@ -44,16 +40,8 @@
  (data (i32.const 444) "\\\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00>\00\00\00h\00t\00t\00p\00:\00/\00/\00l\00o\00c\00a\00l\00h\00o\00s\00t\00:\005\000\000\000\00/\00a\00u\00d\00i\00o\00.\00m\00p\003\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
  (data (i32.const 544) "\04\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
  (table $0 1 funcref)
- (export "Audio" (global $assembly/audio/Audio))
  (export "test" (func $assembly/audio/test))
  (export "memory" (memory $0))
- (export "__setArgumentsLength" (func $~setArgumentsLength))
- (export "Audio#get:src" (func $export:assembly/audio/Audio#get:src))
- (export "Audio#set:src" (func $export:assembly/audio/Audio#set:src))
- (export "Audio#constructor" (func $export:assembly/audio/Audio#constructor@varargs))
- (export "Audio#play" (func $export:assembly/audio/Audio#play))
- (export "Audio#pause" (func $export:assembly/audio/Audio#pause))
- (export "Audio#set:autoplay" (func $export:assembly/audio/Audio#set:autoplay))
  (start $~start)
  (func $~lib/rt/itcms/Object#get:color (param $0 i32) (result i32)
   local.get $0
@@ -322,7 +310,7 @@
    end
   end
  )
- (func $assembly/audio/Audio#set:src (param $0 i32) (param $1 i32)
+ (func $node_modules/audio.as/assembly/audio/Audio#set:src (param $0 i32) (param $1 i32)
   local.get $0
   local.get $1
   i32.store offset=4
@@ -331,7 +319,7 @@
   i32.const 0
   call $~lib/rt/itcms/__link
  )
- (func $assembly/audio/Audio#set:id (param $0 i32) (param $1 i32)
+ (func $node_modules/audio.as/assembly/audio/Audio#set:id (param $0 i32) (param $1 i32)
   local.get $0
   local.get $1
   i32.store
@@ -2442,30 +2430,6 @@
   call $~lib/memory/memory.fill
   local.get $3
  )
- (func $assembly/audio/Audio#get:id (param $0 i32) (result i32)
-  local.get $0
-  i32.load
- )
- (func $assembly/audio/Audio#get:src (param $0 i32) (result i32)
-  local.get $0
-  i32.load offset=4
- )
- (func $assembly/audio/Audio#constructor@varargs (param $0 i32) (param $1 i32) (result i32)
-  block $1of1
-   block $0of1
-    block $outOfRange
-     global.get $~argumentsLength
-     br_table $0of1 $1of1 $outOfRange
-    end
-    unreachable
-   end
-   i32.const 0
-   local.set $1
-  end
-  local.get $0
-  local.get $1
-  call $assembly/audio/Audio#constructor
- )
  (func $~lib/rt/__visit_globals (param $0 i32)
   (local $1 i32)
   i32.const 128
@@ -2486,7 +2450,7 @@
    call $~lib/rt/itcms/__visit
   end
  )
- (func $assembly/audio/Audio~visit (param $0 i32) (param $1 i32)
+ (func $node_modules/audio.as/assembly/audio/Audio~visit (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $0
   i32.load offset=4
@@ -2499,7 +2463,7 @@
  )
  (func $~lib/rt/__visit_members (param $0 i32) (param $1 i32)
   block $invalid
-   block $assembly/audio/Audio
+   block $node_modules/audio.as/assembly/audio/Audio
     block $~lib/arraybuffer/ArrayBufferView
      block $~lib/string/String
       block $~lib/arraybuffer/ArrayBuffer
@@ -2507,7 +2471,7 @@
        i32.const 8
        i32.sub
        i32.load
-       br_table $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $assembly/audio/Audio $invalid
+       br_table $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $node_modules/audio.as/assembly/audio/Audio $invalid
       end
       return
      end
@@ -2520,14 +2484,10 @@
    end
    local.get $0
    local.get $1
-   call $assembly/audio/Audio~visit
+   call $node_modules/audio.as/assembly/audio/Audio~visit
    return
   end
   unreachable
- )
- (func $~setArgumentsLength (param $0 i32)
-  local.get $0
-  global.set $~argumentsLength
  )
  (func $~start
   i32.const 80
@@ -2561,7 +2521,7 @@
    unreachable
   end
  )
- (func $assembly/audio/Audio#constructor (param $0 i32) (param $1 i32) (result i32)
+ (func $node_modules/audio.as/assembly/audio/Audio#constructor (param $0 i32) (param $1 i32) (result i32)
   (local $2 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 8
@@ -2583,13 +2543,13 @@
   end
   local.get $0
   i32.const -1
-  call $assembly/audio/Audio#set:id
+  call $node_modules/audio.as/assembly/audio/Audio#set:id
   local.get $0
   i32.const 0
-  call $assembly/audio/Audio#set:src
+  call $node_modules/audio.as/assembly/audio/Audio#set:src
   local.get $0
   local.get $1
-  call $assembly/audio/Audio#set:src
+  call $node_modules/audio.as/assembly/audio/Audio#set:src
   local.get $0
   local.get $1
   if (result i32)
@@ -2602,8 +2562,8 @@
   local.get $2
   i32.store offset=4
   local.get $2
-  call $assembly/audio/_initAudio
-  call $assembly/audio/Audio#set:id
+  call $node_modules/audio.as/assembly/audio/_initAudio
+  call $node_modules/audio.as/assembly/audio/Audio#set:id
   local.get $0
   local.set $2
   global.get $~lib/memory/__stack_pointer
@@ -2612,61 +2572,7 @@
   global.set $~lib/memory/__stack_pointer
   local.get $2
  )
- (func $assembly/audio/Audio#play (param $0 i32)
-  (local $1 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store
-  i32.const 1
-  drop
-  local.get $0
-  i32.load
-  local.get $0
-  i32.load offset=4
-  local.set $1
-  global.get $~lib/memory/__stack_pointer
-  local.get $1
-  i32.store
-  local.get $1
-  call $assembly/audio/_playAudio
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $assembly/audio/Audio#pause (param $0 i32)
-  (local $1 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store
-  i32.const 1
-  drop
-  local.get $0
-  i32.load
-  local.get $0
-  i32.load offset=4
-  local.set $1
-  global.get $~lib/memory/__stack_pointer
-  local.get $1
-  i32.store
-  local.get $1
-  call $assembly/audio/_pauseAudio
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $assembly/audio/Audio#set:autoplay (param $0 i32) (param $1 i32)
+ (func $node_modules/audio.as/assembly/audio/Audio#set:autoplay (param $0 i32) (param $1 i32)
   (local $2 i32)
   global.get $~lib/memory/__stack_pointer
   i32.const 4
@@ -2691,7 +2597,7 @@
    local.get $2
    i32.store
    local.get $2
-   call $assembly/audio/_toggleAutoplay
+   call $node_modules/audio.as/assembly/audio/_toggleAutoplay
   end
   global.get $~lib/memory/__stack_pointer
   i32.const 4
@@ -2717,125 +2623,14 @@
   local.get $1
   i32.store
   local.get $1
-  call $assembly/audio/Audio#constructor
+  call $node_modules/audio.as/assembly/audio/Audio#constructor
   local.tee $0
   i32.store offset=4
   local.get $0
   i32.const 1
-  call $assembly/audio/Audio#set:autoplay
+  call $node_modules/audio.as/assembly/audio/Audio#set:autoplay
   global.get $~lib/memory/__stack_pointer
   i32.const 8
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $export:assembly/audio/Audio#get:src (param $0 i32) (result i32)
-  (local $1 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  local.get $0
-  i32.store
-  local.get $0
-  call $assembly/audio/Audio#get:src
-  local.set $1
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $1
- )
- (func $export:assembly/audio/Audio#set:src (param $0 i32) (param $1 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  local.get $0
-  i32.store
-  global.get $~lib/memory/__stack_pointer
-  local.get $1
-  i32.store offset=4
-  local.get $0
-  local.get $1
-  call $assembly/audio/Audio#set:src
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $export:assembly/audio/Audio#constructor@varargs (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  local.get $0
-  i32.store
-  global.get $~lib/memory/__stack_pointer
-  local.get $1
-  i32.store offset=4
-  local.get $0
-  local.get $1
-  call $assembly/audio/Audio#constructor@varargs
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $2
- )
- (func $export:assembly/audio/Audio#play (param $0 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  local.get $0
-  i32.store
-  local.get $0
-  call $assembly/audio/Audio#play
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $export:assembly/audio/Audio#pause (param $0 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  local.get $0
-  i32.store
-  local.get $0
-  call $assembly/audio/Audio#pause
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $export:assembly/audio/Audio#set:autoplay (param $0 i32) (param $1 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  local.get $0
-  i32.store
-  local.get $0
-  local.get $1
-  call $assembly/audio/Audio#set:autoplay
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
   i32.add
   global.set $~lib/memory/__stack_pointer
  )

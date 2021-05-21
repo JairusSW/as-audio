@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.18.32.tgz#2216fc7df235df247c95004457efd9c0a7da33ed"
   integrity sha512-fq+nWvQuwASkTgchjMsnLyharobzPJIKx4KGoSlkS1ffrsnjabok2oOH7jAIFW4RMz3JXjHxMONbAmcxzyrcUw==
 
+as-string-sink@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/as-string-sink/-/as-string-sink-0.2.1.tgz#20ee91dd58ed88bbcf71de56ada29086e7ba9bfe"
+  integrity sha512-BiKt1ZbKAkVQqFDjAujeVG8FCzK4ool4iS29Ix2SeNKHnLRkeWh5VpTRbLUsIOKGyfGrPkfDMmpuG6Af3iETcQ==
+
 assemblyscript@^0.18.32:
   version "0.18.32"
   resolved "https://registry.yarnpkg.com/assemblyscript/-/assemblyscript-0.18.32.tgz#cbb76076bd4d9702f4baae0a2910c9755c8e4ecd"
@@ -14,6 +19,14 @@ assemblyscript@^0.18.32:
   dependencies:
     binaryen "100.0.0-nightly.20210413"
     long "^4.0.0"
+
+audio.as@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/audio.as/-/audio.as-0.0.1.tgz#cbc80acc6519c4f3652137f7020d5999c33406f6"
+  integrity sha512-Lz0PXUrmd4OMOLe8i01TJXkd8Vy25sLvF8YCEr9lJ8oo2JW8Fh7XhDpgFGziK18nvD2wGLw4xn4eloN2ArE8/Q==
+  dependencies:
+    prism-media "^1.2.9"
+    undici "^3.3.6"
 
 binaryen@100.0.0-nightly.20210413:
   version "100.0.0-nightly.20210413"
@@ -46,9 +59,9 @@ buffer-fill@^1.0.0:
   integrity sha1-+PeLdniYiO858gXNY39o5wISKyw=
 
 debug@^4.0.0:
-  version "4.3.2"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.2.tgz#f0a49c18ac8779e31d4a0c6029dfb76873c7428b"
-  integrity sha512-mOp8wKcvj7XxC78zLgw/ZA+6TSgkoE2C/ienthhRD298T7UNwAg9diBpLRxC0mOezLl4B0xV7M0cCO6P/O0Xhw==
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
+  integrity sha512-doEwdvm4PCeK4K3RQN2ZC2BYUBaxwLARCqZmMjtF8a51J2Rb0xpVloFRnCODwqjpwnAoao4pelN8l3RJdv3gRQ==
   dependencies:
     ms "2.1.2"
 

@@ -55,8 +55,7 @@ loader.instantiate(..., imports).then((wasmModule) => {
 ```js
 import { Audio } from 'audio.as'
 
-const audio = new Audio('https://listen.moe/kpop/opus')
-// Kpop stream! 🎶
+const audio = new Audio('https://.../')
 
 audio.play()
 // Listen away! 🎧
