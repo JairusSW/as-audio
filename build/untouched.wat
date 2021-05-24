@@ -1,53 +1,80 @@
 (module
  (type $i32_i32_=>_none (func (param i32 i32)))
- (type $i32_=>_i32 (func (param i32) (result i32)))
  (type $i32_=>_none (func (param i32)))
+ (type $i32_=>_i32 (func (param i32) (result i32)))
+ (type $i32_i32_=>_i32 (func (param i32 i32) (result i32)))
  (type $none_=>_none (func))
  (type $i32_i32_i32_=>_none (func (param i32 i32 i32)))
- (type $i32_i32_=>_i32 (func (param i32 i32) (result i32)))
  (type $i32_i32_i32_i32_=>_none (func (param i32 i32 i32 i32)))
  (type $none_=>_i32 (func (result i32)))
  (type $i32_i32_i32_=>_i32 (func (param i32 i32 i32) (result i32)))
+ (import "audioBindings" "_initAudio" (func $assembly/index/_initAudio (param i32) (result i32)))
  (import "env" "abort" (func $~lib/builtins/abort (param i32 i32 i32 i32)))
- (import "audio" "_initAudio" (func $node_modules/audio-as/assembly/audio/_initAudio (param i32) (result i32)))
- (import "audio" "_toggleAutoplay" (func $node_modules/audio-as/assembly/audio/_toggleAutoplay (param i32 i32)))
- (global $~lib/rt/itcms/white (mut i32) (i32.const 0))
- (global $~lib/rt/itcms/iter (mut i32) (i32.const 0))
- (global $~lib/rt/itcms/toSpace (mut i32) (i32.const 0))
- (global $~lib/rt/itcms/state (mut i32) (i32.const 0))
+ (import "audioBindings" "_playAudio" (func $assembly/index/_playAudio (param i32)))
+ (import "audioBindings" "_pauseAudio" (func $assembly/index/_pauseAudio (param i32)))
+ (import "audioBindings" "_toggleAutoplay" (func $assembly/index/_toggleAutoplay (param i32)))
  (global $~lib/rt/itcms/total (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/threshold (mut i32) (i32.const 0))
+ (global $~lib/rt/itcms/state (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/visitCount (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/pinSpace (mut i32) (i32.const 0))
+ (global $~lib/rt/itcms/iter (mut i32) (i32.const 0))
+ (global $~lib/rt/itcms/toSpace (mut i32) (i32.const 0))
+ (global $~lib/rt/itcms/white (mut i32) (i32.const 0))
  (global $~lib/rt/itcms/fromSpace (mut i32) (i32.const 0))
  (global $~lib/rt/tlsf/ROOT (mut i32) (i32.const 0))
  (global $~lib/ASC_LOW_MEMORY_LIMIT i32 (i32.const 0))
  (global $~lib/ASC_SHRINK_LEVEL i32 (i32.const 0))
- (global $~lib/rt/__rtti_base i32 (i32.const 544))
- (global $~lib/memory/__data_end i32 (i32.const 580))
- (global $~lib/memory/__stack_pointer (mut i32) (i32.const 16964))
- (global $~lib/memory/__heap_base i32 (i32.const 16964))
+ (global $assembly/index/Audio i32 (i32.const 3))
+ (global $~argumentsLength (mut i32) (i32.const 0))
+ (global $~lib/rt/__rtti_base i32 (i32.const 512))
+ (global $~lib/memory/__data_end i32 (i32.const 548))
+ (global $~lib/memory/__stack_pointer (mut i32) (i32.const 16932))
+ (global $~lib/memory/__heap_base i32 (i32.const 16932))
  (memory $0 1)
- (data (i32.const 12) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00 \00\00\00~\00l\00i\00b\00/\00r\00t\00/\00i\00t\00c\00m\00s\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 80) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 108) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00$\00\00\00I\00n\00d\00e\00x\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e\00\00\00\00\00\00\00\00\00")
- (data (i32.const 172) ",\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\14\00\00\00~\00l\00i\00b\00/\00r\00t\00.\00t\00s\00\00\00\00\00\00\00\00\00")
- (data (i32.const 220) "\1c\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\08\00\00\00n\00u\00l\00l\00\00\00\00\00")
- (data (i32.const 252) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00(\00\00\00A\00l\00l\00o\00c\00a\00t\00i\00o\00n\00 \00t\00o\00o\00 \00l\00a\00r\00g\00e\00\00\00\00\00")
+ (data (i32.const 12) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00(\00\00\00A\00l\00l\00o\00c\00a\00t\00i\00o\00n\00 \00t\00o\00o\00 \00l\00a\00r\00g\00e\00\00\00\00\00")
+ (data (i32.const 76) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00 \00\00\00~\00l\00i\00b\00/\00r\00t\00/\00i\00t\00c\00m\00s\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 144) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 176) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 204) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00$\00\00\00I\00n\00d\00e\00x\00 \00o\00u\00t\00 \00o\00f\00 \00r\00a\00n\00g\00e\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 268) ",\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\14\00\00\00~\00l\00i\00b\00/\00r\00t\00.\00t\00s\00\00\00\00\00\00\00\00\00")
  (data (i32.const 320) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 352) "\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 380) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\1e\00\00\00~\00l\00i\00b\00/\00r\00t\00/\00t\00l\00s\00f\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 444) "\\\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00>\00\00\00h\00t\00t\00p\00:\00/\00/\00l\00o\00c\00a\00l\00h\00o\00s\00t\00:\005\000\000\000\00/\00a\00u\00d\00i\00o\00.\00m\00p\003\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
- (data (i32.const 544) "\04\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 348) "<\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00\1e\00\00\00~\00l\00i\00b\00/\00r\00t\00/\00t\00l\00s\00f\00.\00t\00s\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 412) "\\\00\00\00\00\00\00\00\00\00\00\00\01\00\00\00>\00\00\00h\00t\00t\00p\00:\00/\00/\00l\00o\00c\00a\00l\00h\00o\00s\00t\00:\005\000\000\000\00/\00a\00u\00d\00i\00o\00.\00m\00p\003\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
+ (data (i32.const 512) "\04\00\00\00 \00\00\00\00\00\00\00 \00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00")
  (table $0 1 funcref)
- (export "test" (func $assembly/audio/test))
+ (export "Audio" (global $assembly/index/Audio))
+ (export "test" (func $assembly/index/test))
  (export "memory" (memory $0))
+ (export "__setArgumentsLength" (func $~setArgumentsLength))
+ (export "Audio#constructor" (func $export:assembly/index/Audio#constructor@varargs))
+ (export "Audio#play" (func $export:assembly/index/Audio#play))
+ (export "Audio#pause" (func $export:assembly/index/Audio#pause))
+ (export "Audio#set:autoplay" (func $export:assembly/index/Audio#set:autoplay))
  (start $~start)
- (func $~lib/rt/itcms/Object#get:color (param $0 i32) (result i32)
+ (func $assembly/index/Audio#set:id (param $0 i32) (param $1 i32)
   local.get $0
-  i32.load offset=4
-  i32.const 3
-  i32.and
+  local.get $1
+  i32.store
+ )
+ (func $~lib/rt/itcms/Object#set:nextWithColor (param $0 i32) (param $1 i32)
+  local.get $0
+  local.get $1
+  i32.store offset=4
+ )
+ (func $~lib/rt/itcms/Object#set:prev (param $0 i32) (param $1 i32)
+  local.get $0
+  local.get $1
+  i32.store offset=8
+ )
+ (func $~lib/rt/itcms/initLazy (param $0 i32) (result i32)
+  local.get $0
+  local.get $0
+  call $~lib/rt/itcms/Object#set:nextWithColor
+  local.get $0
+  local.get $0
+  call $~lib/rt/itcms/Object#set:prev
+  local.get $0
  )
  (func $~lib/rt/itcms/Object#get:next (param $0 i32) (result i32)
   local.get $0
@@ -57,15 +84,68 @@
   i32.xor
   i32.and
  )
- (func $~lib/rt/itcms/Object#set:prev (param $0 i32) (param $1 i32)
+ (func $~lib/rt/itcms/Object#get:color (param $0 i32) (result i32)
   local.get $0
-  local.get $1
-  i32.store offset=8
+  i32.load offset=4
+  i32.const 3
+  i32.and
  )
- (func $~lib/rt/itcms/Object#set:nextWithColor (param $0 i32) (param $1 i32)
+ (func $~lib/rt/itcms/visitRoots (param $0 i32)
+  (local $1 i32)
+  (local $2 i32)
+  (local $3 i32)
   local.get $0
+  call $~lib/rt/__visit_globals
+  global.get $~lib/rt/itcms/pinSpace
+  local.set $1
   local.get $1
-  i32.store offset=4
+  call $~lib/rt/itcms/Object#get:next
+  local.set $2
+  loop $while-continue|0
+   local.get $2
+   local.get $1
+   i32.ne
+   local.set $3
+   local.get $3
+   if
+    i32.const 1
+    drop
+    local.get $2
+    call $~lib/rt/itcms/Object#get:color
+    i32.const 3
+    i32.eq
+    i32.eqz
+    if
+     i32.const 0
+     i32.const 96
+     i32.const 159
+     i32.const 16
+     call $~lib/builtins/abort
+     unreachable
+    end
+    local.get $2
+    i32.const 20
+    i32.add
+    local.get $0
+    call $~lib/rt/__visit_members
+    local.get $2
+    call $~lib/rt/itcms/Object#get:next
+    local.set $2
+    br $while-continue|0
+   end
+  end
+ )
+ (func $~lib/rt/itcms/Object#set:color (param $0 i32) (param $1 i32)
+  local.get $0
+  local.get $0
+  i32.load offset=4
+  i32.const 3
+  i32.const -1
+  i32.xor
+  i32.and
+  local.get $1
+  i32.or
+  call $~lib/rt/itcms/Object#set:nextWithColor
  )
  (func $~lib/rt/itcms/Object#set:next (param $0 i32) (param $1 i32)
   local.get $0
@@ -103,7 +183,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 32
+    i32.const 96
     i32.const 127
     i32.const 18
     call $~lib/builtins/abort
@@ -120,7 +200,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 32
+   i32.const 96
    i32.const 131
    i32.const 16
    call $~lib/builtins/abort
@@ -133,15 +213,6 @@
   local.get $1
   call $~lib/rt/itcms/Object#set:next
  )
- (func $~lib/rt/itcms/initLazy (param $0 i32) (result i32)
-  local.get $0
-  local.get $0
-  call $~lib/rt/itcms/Object#set:nextWithColor
-  local.get $0
-  local.get $0
-  call $~lib/rt/itcms/Object#set:prev
-  local.get $0
- )
  (func $~lib/rt/__typeinfo (param $0 i32) (result i32)
   (local $1 i32)
   global.get $~lib/rt/__rtti_base
@@ -151,8 +222,8 @@
   i32.load
   i32.gt_u
   if
-   i32.const 128
-   i32.const 192
+   i32.const 224
+   i32.const 288
    i32.const 22
    i32.const 28
    call $~lib/builtins/abort
@@ -218,7 +289,7 @@
    i32.eqz
    if (result i32)
     i32.const 0
-    i32.const 32
+    i32.const 96
     i32.const 147
     i32.const 30
     call $~lib/builtins/abort
@@ -241,145 +312,6 @@
    i32.const 2
   end
   call $~lib/rt/itcms/Object#linkTo
- )
- (func $~lib/rt/itcms/__link (param $0 i32) (param $1 i32) (param $2 i32)
-  (local $3 i32)
-  (local $4 i32)
-  (local $5 i32)
-  local.get $1
-  i32.eqz
-  if
-   return
-  end
-  i32.const 1
-  drop
-  local.get $0
-  i32.eqz
-  if
-   i32.const 0
-   i32.const 32
-   i32.const 294
-   i32.const 14
-   call $~lib/builtins/abort
-   unreachable
-  end
-  local.get $1
-  i32.const 20
-  i32.sub
-  local.set $3
-  local.get $3
-  call $~lib/rt/itcms/Object#get:color
-  global.get $~lib/rt/itcms/white
-  i32.eq
-  if
-   local.get $0
-   i32.const 20
-   i32.sub
-   local.set $4
-   local.get $4
-   call $~lib/rt/itcms/Object#get:color
-   local.set $5
-   local.get $5
-   global.get $~lib/rt/itcms/white
-   i32.eqz
-   i32.eq
-   if
-    local.get $2
-    if
-     local.get $4
-     call $~lib/rt/itcms/Object#makeGray
-    else
-     local.get $3
-     call $~lib/rt/itcms/Object#makeGray
-    end
-   else
-    local.get $5
-    i32.const 3
-    i32.eq
-    if (result i32)
-     global.get $~lib/rt/itcms/state
-     i32.const 1
-     i32.eq
-    else
-     i32.const 0
-    end
-    if
-     local.get $3
-     call $~lib/rt/itcms/Object#makeGray
-    end
-   end
-  end
- )
- (func $node_modules/audio-as/assembly/audio/Audio#set:src (param $0 i32) (param $1 i32)
-  local.get $0
-  local.get $1
-  i32.store offset=4
-  local.get $0
-  local.get $1
-  i32.const 0
-  call $~lib/rt/itcms/__link
- )
- (func $node_modules/audio-as/assembly/audio/Audio#set:id (param $0 i32) (param $1 i32)
-  local.get $0
-  local.get $1
-  i32.store
- )
- (func $~lib/rt/itcms/visitRoots (param $0 i32)
-  (local $1 i32)
-  (local $2 i32)
-  (local $3 i32)
-  local.get $0
-  call $~lib/rt/__visit_globals
-  global.get $~lib/rt/itcms/pinSpace
-  local.set $1
-  local.get $1
-  call $~lib/rt/itcms/Object#get:next
-  local.set $2
-  loop $while-continue|0
-   local.get $2
-   local.get $1
-   i32.ne
-   local.set $3
-   local.get $3
-   if
-    i32.const 1
-    drop
-    local.get $2
-    call $~lib/rt/itcms/Object#get:color
-    i32.const 3
-    i32.eq
-    i32.eqz
-    if
-     i32.const 0
-     i32.const 32
-     i32.const 159
-     i32.const 16
-     call $~lib/builtins/abort
-     unreachable
-    end
-    local.get $2
-    i32.const 20
-    i32.add
-    local.get $0
-    call $~lib/rt/__visit_members
-    local.get $2
-    call $~lib/rt/itcms/Object#get:next
-    local.set $2
-    br $while-continue|0
-   end
-  end
- )
- (func $~lib/rt/itcms/Object#set:color (param $0 i32) (param $1 i32)
-  local.get $0
-  local.get $0
-  i32.load offset=4
-  i32.const 3
-  i32.const -1
-  i32.xor
-  i32.and
-  local.get $1
-  i32.or
-  call $~lib/rt/itcms/Object#set:nextWithColor
  )
  (func $~lib/rt/itcms/__visit (param $0 i32) (param $1 i32)
   (local $2 i32)
@@ -483,7 +415,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 268
    i32.const 14
    call $~lib/builtins/abort
@@ -503,7 +435,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 270
    i32.const 14
    call $~lib/builtins/abort
@@ -566,7 +498,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 284
    i32.const 14
    call $~lib/builtins/abort
@@ -698,7 +630,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 201
    i32.const 14
    call $~lib/builtins/abort
@@ -715,7 +647,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 203
    i32.const 14
    call $~lib/builtins/abort
@@ -795,7 +727,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 400
+    i32.const 368
     i32.const 221
     i32.const 16
     call $~lib/builtins/abort
@@ -838,7 +770,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 233
    i32.const 14
    call $~lib/builtins/abort
@@ -856,7 +788,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 234
    i32.const 14
    call $~lib/builtins/abort
@@ -924,7 +856,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 251
    i32.const 14
    call $~lib/builtins/abort
@@ -1029,7 +961,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 377
    i32.const 14
    call $~lib/builtins/abort
@@ -1072,7 +1004,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 400
+    i32.const 368
     i32.const 384
     i32.const 16
     call $~lib/builtins/abort
@@ -1105,7 +1037,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 400
+    i32.const 368
     i32.const 397
     i32.const 5
     call $~lib/builtins/abort
@@ -1348,7 +1280,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 559
    i32.const 3
    call $~lib/builtins/abort
@@ -1570,7 +1502,7 @@
     i32.eqz
     if
      i32.const 0
-     i32.const 32
+     i32.const 96
      i32.const 228
      i32.const 20
      call $~lib/builtins/abort
@@ -1678,8 +1610,8 @@
   i32.const 1073741820
   i32.gt_u
   if
-   i32.const 272
-   i32.const 400
+   i32.const 32
+   i32.const 368
    i32.const 458
    i32.const 29
    call $~lib/builtins/abort
@@ -1763,7 +1695,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 330
    i32.const 14
    call $~lib/builtins/abort
@@ -1828,7 +1760,7 @@
     i32.eqz
     if
      i32.const 0
-     i32.const 400
+     i32.const 368
      i32.const 343
      i32.const 18
      call $~lib/builtins/abort
@@ -1979,7 +1911,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 357
    i32.const 14
    call $~lib/builtins/abort
@@ -2088,7 +2020,7 @@
    i32.eqz
    if
     i32.const 0
-    i32.const 400
+    i32.const 368
     i32.const 496
     i32.const 16
     call $~lib/builtins/abort
@@ -2108,7 +2040,7 @@
   i32.eqz
   if
    i32.const 0
-   i32.const 400
+   i32.const 368
    i32.const 498
    i32.const 14
    call $~lib/builtins/abort
@@ -2385,8 +2317,8 @@
   i32.const 1073741804
   i32.ge_u
   if
-   i32.const 272
    i32.const 32
+   i32.const 96
    i32.const 260
    i32.const 31
    call $~lib/builtins/abort
@@ -2430,12 +2362,139 @@
   call $~lib/memory/memory.fill
   local.get $3
  )
+ (func $~lib/rt/itcms/__link (param $0 i32) (param $1 i32) (param $2 i32)
+  (local $3 i32)
+  (local $4 i32)
+  (local $5 i32)
+  local.get $1
+  i32.eqz
+  if
+   return
+  end
+  i32.const 1
+  drop
+  local.get $0
+  i32.eqz
+  if
+   i32.const 0
+   i32.const 96
+   i32.const 294
+   i32.const 14
+   call $~lib/builtins/abort
+   unreachable
+  end
+  local.get $1
+  i32.const 20
+  i32.sub
+  local.set $3
+  local.get $3
+  call $~lib/rt/itcms/Object#get:color
+  global.get $~lib/rt/itcms/white
+  i32.eq
+  if
+   local.get $0
+   i32.const 20
+   i32.sub
+   local.set $4
+   local.get $4
+   call $~lib/rt/itcms/Object#get:color
+   local.set $5
+   local.get $5
+   global.get $~lib/rt/itcms/white
+   i32.eqz
+   i32.eq
+   if
+    local.get $2
+    if
+     local.get $4
+     call $~lib/rt/itcms/Object#makeGray
+    else
+     local.get $3
+     call $~lib/rt/itcms/Object#makeGray
+    end
+   else
+    local.get $5
+    i32.const 3
+    i32.eq
+    if (result i32)
+     global.get $~lib/rt/itcms/state
+     i32.const 1
+     i32.eq
+    else
+     i32.const 0
+    end
+    if
+     local.get $3
+     call $~lib/rt/itcms/Object#makeGray
+    end
+   end
+  end
+ )
+ (func $assembly/index/Audio#set:src (param $0 i32) (param $1 i32)
+  local.get $0
+  local.get $1
+  i32.store offset=4
+  local.get $0
+  local.get $1
+  i32.const 0
+  call $~lib/rt/itcms/__link
+ )
+ (func $assembly/index/Audio#get:id (param $0 i32) (result i32)
+  local.get $0
+  i32.load
+ )
+ (func $assembly/index/Audio#get:src (param $0 i32) (result i32)
+  local.get $0
+  i32.load offset=4
+ )
+ (func $assembly/index/Audio#play (param $0 i32)
+  i32.const 1
+  drop
+  local.get $0
+  i32.load
+  call $assembly/index/_playAudio
+ )
+ (func $assembly/index/Audio#pause (param $0 i32)
+  i32.const 1
+  drop
+  local.get $0
+  i32.load
+  call $assembly/index/_pauseAudio
+ )
+ (func $assembly/index/Audio#set:autoplay (param $0 i32) (param $1 i32)
+  local.get $1
+  i32.const 0
+  i32.ne
+  i32.const 1
+  i32.eq
+  if
+   local.get $0
+   i32.load
+   call $assembly/index/_toggleAutoplay
+  end
+ )
+ (func $assembly/index/Audio#constructor@varargs (param $0 i32) (param $1 i32) (result i32)
+  block $1of1
+   block $0of1
+    block $outOfRange
+     global.get $~argumentsLength
+     br_table $0of1 $1of1 $outOfRange
+    end
+    unreachable
+   end
+   i32.const 0
+   local.set $1
+  end
+  local.get $0
+  local.get $1
+  call $assembly/index/Audio#constructor
+ )
  (func $~lib/rt/__visit_globals (param $0 i32)
   (local $1 i32)
-  i32.const 128
+  i32.const 224
   local.get $0
   call $~lib/rt/itcms/__visit
-  i32.const 272
+  i32.const 32
   local.get $0
   call $~lib/rt/itcms/__visit
  )
@@ -2450,7 +2509,7 @@
    call $~lib/rt/itcms/__visit
   end
  )
- (func $node_modules/audio-as/assembly/audio/Audio~visit (param $0 i32) (param $1 i32)
+ (func $assembly/index/Audio~visit (param $0 i32) (param $1 i32)
   (local $2 i32)
   local.get $0
   i32.load offset=4
@@ -2463,7 +2522,7 @@
  )
  (func $~lib/rt/__visit_members (param $0 i32) (param $1 i32)
   block $invalid
-   block $node_modules/audio-as/assembly/audio/Audio
+   block $assembly/index/Audio
     block $~lib/arraybuffer/ArrayBufferView
      block $~lib/string/String
       block $~lib/arraybuffer/ArrayBuffer
@@ -2471,7 +2530,7 @@
        i32.const 8
        i32.sub
        i32.load
-       br_table $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $node_modules/audio-as/assembly/audio/Audio $invalid
+       br_table $~lib/arraybuffer/ArrayBuffer $~lib/string/String $~lib/arraybuffer/ArrayBufferView $assembly/index/Audio $invalid
       end
       return
      end
@@ -2484,15 +2543,16 @@
    end
    local.get $0
    local.get $1
-   call $node_modules/audio-as/assembly/audio/Audio~visit
+   call $assembly/index/Audio~visit
    return
   end
   unreachable
  )
+ (func $~setArgumentsLength (param $0 i32)
+  local.get $0
+  global.set $~argumentsLength
+ )
  (func $~start
-  i32.const 80
-  call $~lib/rt/itcms/initLazy
-  global.set $~lib/rt/itcms/toSpace
   memory.size
   i32.const 16
   i32.shl
@@ -2501,10 +2561,13 @@
   i32.const 1
   i32.shr_u
   global.set $~lib/rt/itcms/threshold
-  i32.const 320
+  i32.const 144
   call $~lib/rt/itcms/initLazy
   global.set $~lib/rt/itcms/pinSpace
-  i32.const 352
+  i32.const 176
+  call $~lib/rt/itcms/initLazy
+  global.set $~lib/rt/itcms/toSpace
+  i32.const 320
   call $~lib/rt/itcms/initLazy
   global.set $~lib/rt/itcms/fromSpace
  )
@@ -2513,98 +2576,15 @@
   global.get $~lib/memory/__data_end
   i32.lt_s
   if
-   i32.const 16992
-   i32.const 17040
+   i32.const 16960
+   i32.const 17008
    i32.const 1
    i32.const 1
    call $~lib/builtins/abort
    unreachable
   end
  )
- (func $node_modules/audio-as/assembly/audio/Audio#constructor (param $0 i32) (param $1 i32) (result i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i64.const 0
-  i64.store
-  local.get $0
-  i32.eqz
-  if
-   global.get $~lib/memory/__stack_pointer
-   i32.const 8
-   i32.const 3
-   call $~lib/rt/itcms/__new
-   local.tee $0
-   i32.store
-  end
-  local.get $0
-  i32.const -1
-  call $node_modules/audio-as/assembly/audio/Audio#set:id
-  local.get $0
-  i32.const 0
-  call $node_modules/audio-as/assembly/audio/Audio#set:src
-  local.get $0
-  local.get $1
-  call $node_modules/audio-as/assembly/audio/Audio#set:src
-  local.get $0
-  local.get $1
-  if (result i32)
-   local.get $1
-  else
-   i32.const 240
-  end
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  local.get $2
-  i32.store offset=4
-  local.get $2
-  call $node_modules/audio-as/assembly/audio/_initAudio
-  call $node_modules/audio-as/assembly/audio/Audio#set:id
-  local.get $0
-  local.set $2
-  global.get $~lib/memory/__stack_pointer
-  i32.const 8
-  i32.add
-  global.set $~lib/memory/__stack_pointer
-  local.get $2
- )
- (func $node_modules/audio-as/assembly/audio/Audio#set:autoplay (param $0 i32) (param $1 i32)
-  (local $2 i32)
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.sub
-  global.set $~lib/memory/__stack_pointer
-  call $~stack_check
-  global.get $~lib/memory/__stack_pointer
-  i32.const 0
-  i32.store
-  local.get $1
-  i32.const 0
-  i32.ne
-  i32.const 1
-  i32.eq
-  if
-   local.get $0
-   i32.load
-   local.get $0
-   i32.load offset=4
-   local.set $2
-   global.get $~lib/memory/__stack_pointer
-   local.get $2
-   i32.store
-   local.get $2
-   call $node_modules/audio-as/assembly/audio/_toggleAutoplay
-  end
-  global.get $~lib/memory/__stack_pointer
-  i32.const 4
-  i32.add
-  global.set $~lib/memory/__stack_pointer
- )
- (func $assembly/audio/test
+ (func $assembly/index/test
   (local $0 i32)
   (local $1 i32)
   global.get $~lib/memory/__stack_pointer
@@ -2617,20 +2597,134 @@
   i64.store
   global.get $~lib/memory/__stack_pointer
   i32.const 0
-  i32.const 464
+  i32.const 432
   local.set $1
   global.get $~lib/memory/__stack_pointer
   local.get $1
   i32.store
   local.get $1
-  call $node_modules/audio-as/assembly/audio/Audio#constructor
+  call $assembly/index/Audio#constructor
   local.tee $0
   i32.store offset=4
   local.get $0
-  i32.const 1
-  call $node_modules/audio-as/assembly/audio/Audio#set:autoplay
+  call $assembly/index/Audio#play
   global.get $~lib/memory/__stack_pointer
   i32.const 8
+  i32.add
+  global.set $~lib/memory/__stack_pointer
+ )
+ (func $assembly/index/Audio#constructor (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  i32.const 0
+  i32.store
+  local.get $0
+  i32.eqz
+  if
+   global.get $~lib/memory/__stack_pointer
+   i32.const 8
+   i32.const 3
+   call $~lib/rt/itcms/__new
+   local.tee $0
+   i32.store
+  end
+  local.get $0
+  i32.const -1
+  call $assembly/index/Audio#set:id
+  local.get $0
+  i32.const 0
+  call $assembly/index/Audio#set:src
+  local.get $1
+  i32.const 0
+  i32.ne
+  if
+   local.get $0
+   local.get $1
+   call $assembly/index/_initAudio
+   call $assembly/index/Audio#set:id
+  end
+  local.get $0
+  local.set $2
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
+  local.get $2
+ )
+ (func $export:assembly/index/Audio#constructor@varargs (param $0 i32) (param $1 i32) (result i32)
+  (local $2 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 8
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store
+  global.get $~lib/memory/__stack_pointer
+  local.get $1
+  i32.store offset=4
+  local.get $0
+  local.get $1
+  call $assembly/index/Audio#constructor@varargs
+  local.set $2
+  global.get $~lib/memory/__stack_pointer
+  i32.const 8
+  i32.add
+  global.set $~lib/memory/__stack_pointer
+  local.get $2
+ )
+ (func $export:assembly/index/Audio#play (param $0 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store
+  local.get $0
+  call $assembly/index/Audio#play
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
+ )
+ (func $export:assembly/index/Audio#pause (param $0 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store
+  local.get $0
+  call $assembly/index/Audio#pause
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.add
+  global.set $~lib/memory/__stack_pointer
+ )
+ (func $export:assembly/index/Audio#set:autoplay (param $0 i32) (param $1 i32)
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
+  i32.sub
+  global.set $~lib/memory/__stack_pointer
+  call $~stack_check
+  global.get $~lib/memory/__stack_pointer
+  local.get $0
+  i32.store
+  local.get $0
+  local.get $1
+  call $assembly/index/Audio#set:autoplay
+  global.get $~lib/memory/__stack_pointer
+  i32.const 4
   i32.add
   global.set $~lib/memory/__stack_pointer
  )

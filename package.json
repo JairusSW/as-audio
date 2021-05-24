@@ -1,9 +1,9 @@
 {
   "name": "audio-as",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "AssemblyScript Audio API for NodeJS and Browser",
   "repository": "https://github.com/JairusSW/as-audio",
-  "ascMain": "assembly/audio.ts",
+  "ascMain": "assembly/index.ts",
   "main": "imports.js",
   "browser": "imports.esm.js",
   "dependencies": {
@@ -13,14 +13,16 @@
   "author": "Jairus Tanaka",
   "license": "MIT",
   "scripts": {
-    "asbuild:untouched": "asc assembly/audio.ts --target debug",
-    "asbuild:optimized": "asc assembly/audio.ts --target release",
+    "asbuild:untouched": "asc assembly/index.ts --target debug",
+    "asbuild:optimized": "asc assembly/index.ts --target release",
     "asbuild": "yarn asbuild:untouched && yarn asbuild:optimized",
     "test": "node tests"
   },
   "devDependencies": {
     "@assemblyscript/loader": "^0.18.32",
-    "assemblyscript": "^0.18.32"
+    "as-string-sink": "^0.2.1",
+    "assemblyscript": "^0.18.32",
+    "speaker": "^0.5.3"
   },
   "peerDependencies": {
     "speaker": "^0.5.3"
@@ -29,5 +31,11 @@
     "speaker": {
       "optional": true
     }
-  }
+  },
+  "files": [
+    "assembly/",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ]
 }

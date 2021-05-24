@@ -1,12 +1,12 @@
 <html>
     <script type="module">
         import * as loader from '../node_modules/@assemblyscript/loader/index.js'
-        import { AudioImport } from './imports.esm.js'
+        import { AudioImport } from '../imports.esm.js'
         const audio = new AudioImport()
         const imports = {
             ...audio.wasmImports
         };
-        loader.instantiate(fetch("./build/untouched.wasm", { mode: 'no-cors' }), imports).then((wasmModule) => {
+        loader.instantiate(fetch("/build/untouched.wasm", { mode: 'no-cors' }), imports).then((wasmModule) => {
             audio.wasmExports = wasmModule.exports
             wasmModule.exports.test()
         })

@@ -11,6 +11,14 @@ Install optional dependencies
 ~ npm install speaker
 ```
 
+## Features
+- Build for AssemblyScript
+- Works with As-Bind
+- Isomorphic (Node/Browser)
+- ESM/CJS Builds
+- Small (~950 bytes)
+- Simple API
+
 ## Setting up
 
 **NodeJS**
@@ -19,10 +27,7 @@ Install optional dependencies
 ...
 const loader = require('@assemblyscript/loader')
 + const AudioImport = require('audio-as')
-+ const audio = new AudioImport({
-+    asBind: false
-+    // Can toggle this to true
-+ })
++ const audio = new AudioImport()
 const imports = {
 +     ...audio.wasmImports
 }
@@ -37,9 +42,7 @@ const wasmModule = loader.instantiateSync(..., imports);
 ...
 import * as loader from '...'
 + import { AudioImport } from 'https://unpkg.com/audio-as@latest/imports.browser.js'
-+ const audio = new AudioImport({
-+    asBind: false
-+ })
++ const audio = new AudioImport()
 const imports = {
 +    ...audio.wasmImports
 }

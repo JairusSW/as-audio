@@ -10,28 +10,22 @@ class AudioImport {
         this.audioElements = []
         this._exports = null
         this.wasmImports = {
-            audio: {
+            audioBindings: {
                 _initAudio: (src) => {
-                    const link = (options['asBind'] === true) ? src : this._exports.__getString(src)
-                    if (link === 'null') return this.audioElements.push(new Audio(null))
+                    const link = this._exports.__getString(src)
                     this.audioElements.push(new Audio(link))
+                    return this.audioElements.length - 1
                 },
-                _playAudio: (id, src) => {
+                _playAudio: (id) => {
                     const audioElement = this.audioElements[id]
-                    if (!audioElement) return
-                    if (!audioElement.src) audioElement.src = (options['asBind'] === true) ? src : this._exports.__getString(src)
                     audioElement.play()
                 },
-                _pauseAudio: (id, src) => {
+                _pauseAudio: (id) => {
                     const audioElement = this.audioElements[id]
-                    if (!audioElement) return
-                    if (!audioElement.src) audioElement.src = (options['asBind'] === true) ? src : this._exports.__getString(src)
                     audioElement.pause()
                 },
-                _toggleAutoplay: (id, src) => {
+                _toggleAutoplay: (id) => {
                     const audioElement = this.audioElements[id]
-                    if (!audioElement) return
-                    if (!audioElement.src) audioElement.src = (options['asBind'] === true) ? src : this._exports.__getString(src)
                     audioElement.autoplay = true
                 }
             }

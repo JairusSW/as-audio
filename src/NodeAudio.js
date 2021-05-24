@@ -61,6 +61,7 @@ async function start(src, transcoder, speaker, stop) {
         // Handle streaming from URLs
         const res = await undici.request(src)
         input = res.body.pipe(transcoder)
+        //input = needle.get(src).pipe(transcoder)
     } else {
         // Handle file streaming
         input = fs.createReadStream(src).pipe(transcoder)
