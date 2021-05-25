@@ -1,4 +1,4 @@
-const Audio = require('./src/NodeAudio')
+const crossAudio = require('./src/NodeAudio')
 
 class AudioImport {
     constructor(options = {
@@ -13,20 +13,20 @@ class AudioImport {
             audioBindings: {
                 _initAudio: (src) => {
                     const link = this._exports.__getString(src)
-                    this.audioElements.push(new Audio(link))
+                    this.audioElements.push(new crossAudio(link))
                     return this.audioElements.length - 1
                 },
                 _playAudio: (id) => {
                     const audioElement = this.audioElements[id]
-                    audioElement.play()
+                    if (audioElement) audioElement.play()
                 },
                 _pauseAudio: (id) => {
                     const audioElement = this.audioElements[id]
-                    audioElement.pause()
+                    if (audioElement) audioElement.pause()
                 },
                 _toggleAutoplay: (id) => {
                     const audioElement = this.audioElements[id]
-                    audioElement.autoplay = true
+                    if (audioElement) audioElement.autoplay = true
                 }
             }
         }

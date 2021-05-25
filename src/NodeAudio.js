@@ -42,7 +42,7 @@ class Audio {
 
     stop() {
         this._stop = true
-        if (this._input) this._input.destroy()
+        if (this._input) this._transcoder.destroy()
     }
 
     set autoplay(toggle) {

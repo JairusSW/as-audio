@@ -7,6 +7,11 @@
   resolved "https://registry.yarnpkg.com/@assemblyscript/loader/-/loader-0.18.32.tgz#2216fc7df235df247c95004457efd9c0a7da33ed"
   integrity sha512-fq+nWvQuwASkTgchjMsnLyharobzPJIKx4KGoSlkS1ffrsnjabok2oOH7jAIFW4RMz3JXjHxMONbAmcxzyrcUw==
 
+as-sleep@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/as-sleep/-/as-sleep-0.0.1.tgz#1ddb77e3bf224daf2495c4d5cfd4077a24b58504"
+  integrity sha512-2i2yUlbPJ2Gqisx/n4wa0SQKabzKd3oMcnVO3mDPxFzzLp/0GoCdUXEbOjyVdePRoz5AN7KkflifR8Xph+6ylg==
+
 as-string-sink@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/as-string-sink/-/as-string-sink-0.2.1.tgz#20ee91dd58ed88bbcf71de56ada29086e7ba9bfe"
@@ -19,6 +24,14 @@ assemblyscript@^0.18.32:
   dependencies:
     binaryen "100.0.0-nightly.20210413"
     long "^4.0.0"
+
+audio-as@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/audio-as/-/audio-as-0.0.1.tgz#b11a218c36d36b8d2db3d9d4c996a89589fc4eb9"
+  integrity sha512-qbty5aAxZUz5Mz3fghkk03S3zHqV7l6HyEtkcvy+Nss2CHuARYvS9aphG7qCmpvwDmBaFpVDa7A8XsDdH1LuOA==
+  dependencies:
+    prism-media "^1.2.9"
+    undici "^3.3.6"
 
 binaryen@100.0.0-nightly.20210413:
   version "100.0.0-nightly.20210413"

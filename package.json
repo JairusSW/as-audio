@@ -1,11 +1,9 @@
 {
   "name": "audio-as",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "AssemblyScript Audio API for NodeJS and Browser",
   "repository": "https://github.com/JairusSW/as-audio",
   "ascMain": "assembly/index.ts",
-  "main": "imports.js",
-  "browser": "imports.esm.js",
   "dependencies": {
     "prism-media": "^1.2.9",
     "undici": "^3.3.6"
@@ -20,8 +18,10 @@
   },
   "devDependencies": {
     "@assemblyscript/loader": "^0.18.32",
+    "as-sleep": "^0.0.1",
     "as-string-sink": "^0.2.1",
     "assemblyscript": "^0.18.32",
+    "audio-as": "^0.0.1",
     "speaker": "^0.5.3"
   },
   "peerDependencies": {
@@ -36,6 +36,8 @@
     "assembly/",
     "README.md",
     "LICENSE",
-    "package.json"
+    "package.json",
+    "imports.js",
+    "imports.esm.js"
   ]
 }

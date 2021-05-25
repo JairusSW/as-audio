@@ -23,15 +23,15 @@ export class AudioImport {
                 },
                 _playAudio: (id) => {
                     const audioElement = this.audioElements[id]
-                    audioElement.play()
+                    if (audioElement) audioElement.play()
                 },
                 _pauseAudio: (id) => {
                     const audioElement = this.audioElements[id]
-                    audioElement.pause()
+                    if (audioElement) audioElement.pause()
                 },
                 _toggleAutoplay: (id) => {
                     const audioElement = this.audioElements[id]
-                    audioElement.autoplay = true
+                    if (audioElement) audioElement.autoplay = true
                 }
             }
         }

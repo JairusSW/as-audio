@@ -26,7 +26,7 @@ Install optional dependencies
 ```js
 ...
 const loader = require('@assemblyscript/loader')
-+ const AudioImport = require('audio-as')
++ const AudioImport = require('audio-as/imports')
 + const audio = new AudioImport()
 const imports = {
 +     ...audio.wasmImports
@@ -41,7 +41,7 @@ const wasmModule = loader.instantiateSync(..., imports);
 ```js
 ...
 import * as loader from '...'
-+ import { AudioImport } from 'https://unpkg.com/audio-as@latest/imports.browser.js'
++ import { AudioImport } from 'https://unpkg.com/audio-as@latest/imports.esm.js'
 + const audio = new AudioImport()
 const imports = {
 +    ...audio.wasmImports
